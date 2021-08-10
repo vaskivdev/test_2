@@ -1,0 +1,41 @@
+<div style="margin-top: 100px;" class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="mb-3">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="local" class="form-label">Lokal</label>
+                    <select id="local" class="form-select" [(ngModel)]="selectedLocale">
+                        <option value="" default>Wszystkie</option>
+                        <option *ngFor="let locale of locales" [ngValue]="locale">{{ locale.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <div class="btn btn-primary" (click)="submitFilters()">Zatwierdź</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nazwa</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Godzina</th>
+                        <th scope="col">Użytkownik</th>
+                        <th scope="col">Lokal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let export of exports">
+                        <th>{{ export.name }}</th>
+                        <td>{{ export.date }}</td>
+                        <td>{{ export.hour }}</td>
+                        <td>{{ export.username }}</td>
+                        <td>{{ export.localname }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
